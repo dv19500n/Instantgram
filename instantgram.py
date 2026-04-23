@@ -24,7 +24,7 @@ def get_table(name):
     return dbclient.Table(name)
 
 
-def upload_picture():
+def upload_picture_public():
     bucket = get_public_bucket()
     file= request.files["file"]
     caption= request.form.get("caption",'')
@@ -42,12 +42,12 @@ def upload_picture():
         'Caption':caption,
         'FIleName':unique_filename
     }
-    table=get_table('PictureInfo')
+    table=get_table('PublicPic')
     table.put_item(Item=picture)
     return {'resullts':'OK'}
 
-def list_pictures():
-    table=get_table('PictureInfo')
+def list_pictures_public():
+    table=get_table('PublicPic')
     results=[]
     for item in table.scan()['Items']:
         results.append(item)
