@@ -2,11 +2,10 @@ from flask import Flask, redirect, render_template
 import instantgram
 app = Flask(__name__)
 
-@app.route('/listpictures')
-def listpictures():
-    results=instantgram.list_pictures()
+def listpicturespublic():
+    results=instantgram.list_pictures_public()
     return {'results': results}
 
-@app.route('/uploadpicture', methods=['POST'])
-def uploadfile():
-    return instantgram.upload_picture()
+@app.route('/uploadpicturepublic', methods=['POST'])
+def uploadfilepublic():
+    return instantgram.upload_picture_public()
