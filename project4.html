@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/fourstyles.css">
+        <title>Instantgram</title>
+    </head>
+    <body>
+        <h1>Instantgram</h1>
+        <div>
+            Caption: <input type="text" id="caption">
+            File: <input type="file" id="file">
+            <button onclick="upload_picture();">Go!</button>
+        </div>
+        <hr>
+        <div id="divResults"></div>
+        <script src="/static/fourscript.js"></script>
+        <script>
+            listpictures();
+        </script>
+    </body>
+</html>
